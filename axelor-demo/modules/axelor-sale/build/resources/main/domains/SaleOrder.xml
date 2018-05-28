@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/domain-models
+  http://axelor.com/xml/ns/domain-models/domain-models_5.0.xsd">
+
+	<module name="sale" package="com.axelor.sale.db" />
+
+	<enum name="StatusEnum2" numeric="true">
+		<item name="DRAFT" value="1" title="Draft" />
+		<item name="VALIDATED" value="2" title="Validated" />
+	</enum>
+
+	<entity name="SaleOrder" sequential="true" cachable="true">
+		<many-to-one name="customer" ref="com.axelor.contact.db.Contact" />
+
+		<date name="dateOfOrder" default="now" />
+
+		<date name="dateOfPrevInvoicing" />
+
+		<one-to-many name="saleOrderLine" ref="SaleOrderLine"
+			mappedBy="saleOrder" />
+
+		<decimal name="exTaxTotal" />
+
+		<decimal name="inTaxTotal" />
+
+		<enum name="state2" title="State2" ref="com.axelor.sale.db.StatusEnum2"
+			default="DRAFT" />
+
+	</entity>
+
+
+
+
+</domain-models>

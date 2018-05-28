@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+	<grid name="sale2-order-line-grid" title="Order Lines 2"
+		model="com.axelor.sale2.db.SaleOrderLine2">
+		<field name="product" />
+		<field name="description" />
+		<field name="qty" />
+		<field name="exTaxPrice" />
+		<field name="exSubTotal" />
+		<field name="tax" />
+		<field name="inSubTotal" />
+	</grid>
+
+	<form name="sale2-order-line-form" title="Order Lines 2"
+		model="com.axelor.sale2.db.SaleOrderLine2">
+		<panel>
+			<field name="product"
+				onChange="action-record-sale2-order-line-set-desc-price, action-record-sale2-order-line-calculate-subTotal" />
+			<field name="description" />
+			<field name="qty"
+				onChange="action-record-sale2-order-line-calculate-subTotal" />
+			<field name="exTaxPrice" />
+			<field name="exSubTotal" />
+			<field name="tax"
+				onChange="action-record-sale2-order-line-calculate-subTotal" />
+			<field name="inSubTotal" />
+		</panel>
+	</form>
+
+	<action-record
+		name="action-record-sale2-order-line-set-desc-price"
+		model="com.axelor.sale2.db.SaleOrderLine2">
+		<field name="description" expr="eval:product?.decription" />
+		<field name="exTaxPrice" expr="eval:product?.exTaxPrice" />
+	</action-record>
+
+	<action-record
+		name="action-record-sale2-order-line-calculate-subTotal"
+		model="com.axelor.sale2.db.SaleOrderLine2">
+		<field name="exSubTotal" expr="eval:qty*exTaxPrice" />
+		<field name="inSubTotal" expr="eval:qty*exTaxPrice*(1+tax)" />
+	</action-record>
+
+
+
+</object-views>
+

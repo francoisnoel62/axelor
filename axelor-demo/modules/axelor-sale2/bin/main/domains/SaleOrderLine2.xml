@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models
+	xmlns="http://axelor.com/xml/ns/domain-models"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/domain-models
+  http://axelor.com/xml/ns/domain-models/domain-models_5.0.xsd">
+
+	<module name="sale2" package="com.axelor.sale2.db" />
+
+	<entity name="SaleOrderLine2" sequential="true" cachable="true">
+		<many-to-one name="saleOrder2" ref="SaleOrder2" />
+
+		<many-to-one name="product"
+			ref="com.axelor.product.db.Product" />
+		<string name="description" />
+		<decimal name="qty" />
+		<decimal name="exTaxPrice" />
+		<decimal name="exSubTotal" />
+		<decimal name="tax" default="0.20" />
+		<decimal name="inSubTotal" />
+
+	</entity>
+</domain-models>

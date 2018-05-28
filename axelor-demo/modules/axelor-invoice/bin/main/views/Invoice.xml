@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+	<grid name="invoice-grid" title="Invoice" model="com.axelor.invoice.db.Invoice">
+		<field name="customer" />
+		<field name="dateOfInvoice" />
+		<field name="exTaxTotal" />
+		<field name="inTaxTotal" />
+
+	</grid>
+
+	<form name="invoice-form" title="Invoice" model="com.axelor.invoice.db.Invoice"
+		width="large">
+		<panel>
+			<field name="state" showTitle="false" widget="NavSelect"
+				readonly="true" colSpan="12" />
+			<field name="customer" />
+			<field name="dateOfInvoice" />
+			<field name="invoiceLine" colSpan="12" grid-view="invoice-line-grid"
+				form-view="invoice-line-form" />
+			<field name="exTaxTotal" />
+			<field name="inTaxTotal" />
+			<field name="accountingCodeCustomer" />
+		</panel>
+		<panel sidebar="true">
+			<button name="calculate" title="Calculate"
+				onClick="action-method-invoice-calculate_extaxtotalprice, action-method-invoice-calculate_intaxtotalprice" />
+			<button name="validate" title="Validate" showIf="state=='DRAFT'" 
+				onClick="action-record-invoice-to-validate"
+			/>
+		</panel>
+	</form>
+	
+	<action-record name="action-record-invoice-to-validate"
+		model="com.axelor.invoice.db.Invoice">
+		<field name="state" expr="eval:'VALIDATED'" />
+	</action-record>
+
+	<action-method name="action-method-invoice-calculate_extaxtotalprice">
+		<call class="com.axelor.apps.invoice.web.InvoiceController"
+			method="calculateExTaxTotalPrice" />
+	</action-method>
+
+	<action-method name="action-method-invoice-calculate_intaxtotalprice">
+		<call class="com.axelor.apps.invoice.web.InvoiceController"
+			method="calculateInTaxTotalPrice" />
+	</action-method>
+
+
+
+
+
+</object-views>
+
