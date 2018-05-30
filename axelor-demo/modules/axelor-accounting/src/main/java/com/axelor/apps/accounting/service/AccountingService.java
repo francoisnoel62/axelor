@@ -1,0 +1,10 @@
+package com.axelor.apps.accounting.service;
+
+import com.axelor.accounting.db.Accounting;
+import com.axelor.invoice.db.Invoice;
+
+public interface AccountingService {
+
+	Accounting createAccountingAccountFromInvoice(Invoice inv) throws Exception;
+
+}

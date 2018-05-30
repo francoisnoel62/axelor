@@ -59,5 +59,6 @@ public class InvoiceController {
 		res.setView(ActionView.define("Invoice").model("com.axelor.invoice.db.Invoice").add("form", "invoice-form")
 				.add("grid", "invoice-grid").context("_showRecord", String.valueOf(invoice.getId())).map());
 	}
+	
 
 }

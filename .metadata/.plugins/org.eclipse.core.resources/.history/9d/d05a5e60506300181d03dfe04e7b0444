@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+  <menuitem name="menu-accounting-accounts"
+    title="Accounting" /> 
+
+  <menuitem name="menu-accounting-account"
+    parent="menu-accounting-accounts"
+    title="All Accounting Account"
+    action="accounting.all"/>     
+
+  <action-view name=""accounting.all""
+    title="Accounting"
+    model="com.axelor.accounting.db.Accounting"> 
+    <view type="grid" name="accounting-grid"/> 
+    <view type="form" name="accounting-form"/> 
+  </action-view>
+
+</object-views>
+

@@ -1,0 +1,47 @@
+package com.axelor.apps.accounting.service;
+
+import java.util.List;
+
+import com.axelor.accounting.db.Accounting;
+import com.axelor.accounting.db.AccountingLine;
+import com.axelor.accounting.db.repo.AccountingRepository;
+import com.axelor.inject.Beans;
+import com.axelor.invoice.db.Invoice;
+import com.axelor.invoice.db.InvoiceLine;
+import com.google.inject.persist.Transactional;
+
+public class AccountingServiceImpl implements AccountingService {
+
+	@Override
+	@Transactional(rollbackOn={Exception.class})
+	public Accounting createAccountingAccountFromInvoice(Invoice inv) {
+		Accounting acc = new Accounting();
+		acc.setDateOfAccounting(inv.getDateOfInvoice());
+				
+		List<InvoiceLine> accountingLine = inv.getInvoiceLine();
+		
+		for (InvoiceLine invLine : accountingLine) {
+			AccountingLine accLine = new AccountingLine();
+			accLine.setAccountingAccount(invLine.getAccountingAccount());
+			accLine.setCredit(invLine.getInSubTotal());
+			acc.addAccountingLine(accLine);
+		}
+		
+		AccountingLine accLine = new AccountingLine();
+		accLine.setAccountingAccount(inv.getAccountingCodeCustomer());
+		accLine.setDebit(inv.getInTaxTotal());
+		acc.addAccountingLine(accLine);
+		
+		
+		
+		
+		Beans.get(AccountingRepository.class).save(acc);//Persistance de la nouvelle ecriture comptable créée
+
+		
+		return acc;
+	}
+	
+	
+
+
+}

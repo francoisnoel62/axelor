@@ -24,7 +24,7 @@ public class InvoiceLineServiceImpl implements InvoiceLineService {
 	}
 
 	@Override
-	public BigDecimal setinSubTotalPrice(InvoiceLine invLine) {
+	public BigDecimal setInSubTotalPrice(InvoiceLine invLine) {
 		return setExSubTotalPrice(invLine).multiply(invLine.getTax().add(BigDecimal.ONE));
 	}
 	

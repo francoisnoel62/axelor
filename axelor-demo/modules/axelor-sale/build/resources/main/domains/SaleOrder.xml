@@ -8,7 +8,8 @@
 
 	<enum name="StatusEnum2" numeric="true">
 		<item name="DRAFT" value="1" title="Draft" />
-		<item name="VALIDATED" value="2" title="Validated" />
+		<item name="VALIDATED" value="2" title="Validated"/>
+		<item name="INVOICED" value="3" title="Invoiced"/>
 	</enum>
 
 	<entity name="SaleOrder" sequential="true" cachable="true">

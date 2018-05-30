@@ -1,0 +1,31 @@
+package com.axelor.apps.accounting.web;
+
+import com.axelor.apps.accounting.service.AccountingService;
+import com.axelor.apps.invoice.service.InvoiceService;
+import com.axelor.inject.Beans;
+import com.axelor.invoice.db.Invoice;
+import com.axelor.meta.schema.actions.ActionView;
+import com.axelor.rpc.ActionRequest;
+import com.axelor.rpc.ActionResponse;
+import com.axelor.sale.db.SaleOrder;
+
+public class AccountingController {
+	
+	public void createAccountingAccountFromInvoice(ActionRequest req, ActionResponse res) {
+		Invoice inv = req.getContext().asType(Invoice.class);
+
+		// On recupere le service qu'on a besoin
+		AccountingService acc = Beans.get(AccountingService.class);
+
+		// On utilise la mathode necessaire du service sur le contexte recupéré
+		Accounting  = invSer.createAccountingAccountFromInvoice(invoice);	
+		
+		//On recupere l'ID de la facture pour l'afficher dans le champ correspondant sur sale
+		res.setValue("invoice", invoice);
+
+		// On renvoie le resultat du traitement a travers la reponse
+		res.setView(ActionView.define("Invoice").model("com.axelor.invoice.db.Invoice").add("form", "invoice-form")
+				.add("grid", "invoice-grid").context("_showRecord", String.valueOf(invoice.getId())).map());
+	}
+
+}

@@ -5,7 +5,7 @@
   http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 
   <menuitem name="menu-invoices"
-    title="Invoice" /> 
+    title="Invoice" icon="fa-first-order" icon-background="orange"/> 
 
   <menuitem name="menu-invoice"
     parent="menu-invoices"

@@ -26,10 +26,10 @@
 			<field name="qty"
 				onChange="action-method-invoice-line-set-exsubtotal, action-method-invoice-line-set-insubtotal" />
 			<field name="exTaxPrice" />
-			<field name="exSubTotal" />
-			<field name="tax" />
-			<field name="inSubTotal" />
-			<field name="accountingAccount" />
+			<field name="tax" colOffset="6" />
+			<field name="exSubTotal" readonly="true" colSpan="6" />
+			<field name="inSubTotal" readonly="true" colSpan="6" />
+			<field name="accountingAccount" colSpan="12" />
 		</panel>
 	</form>
 

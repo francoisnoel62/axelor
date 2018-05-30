@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Class-Path: /home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/
- axelor-tomcat/5.0.0-SNAPSHOT/8108e10a2dbce3bcbea46f628186afa250f343de
+ axelor-tomcat/5.0.0-SNAPSHOT/90f48dea46a01fc93c2962476ad7428f324e0edd
  /axelor-tomcat-5.0.0-SNAPSHOT.jar /home/fnoel/.gradle/caches/modules-
  2/files-2.1/commons-cli/commons-cli/1.4/c51c00206bb913cd8612b24abd9fa
  98ae89719b1/commons-cli-1.4.jar /home/fnoel/.gradle/caches/modules-2/

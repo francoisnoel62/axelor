@@ -1,0 +1,35 @@
+package com.axelor.apps.accounting.web;
+
+import com.axelor.accounting.db.Accounting;
+import com.axelor.apps.accounting.service.AccountingService;
+import com.axelor.inject.Beans;
+import com.axelor.invoice.db.Invoice;
+import com.axelor.meta.schema.actions.ActionView;
+import com.axelor.rpc.ActionRequest;
+import com.axelor.rpc.ActionResponse;
+
+public class AccountingController {
+
+	public void createAccountingAccountFromInvoice(ActionRequest req, ActionResponse res) {
+		try {
+			Invoice inv = req.getContext().asType(Invoice.class);
+
+			
+			AccountingService accServ = Beans.get(AccountingService.class);
+
+			
+			Accounting accAcpt = accServ.createAccountingAccountFromInvoice(inv);
+
+			
+			res.setValue("accountingAccount", accAcpt);
+
+			res.setView(ActionView.define("Accounting").model(Accounting.class.getCanonicalName())
+					.add("form", "accounting-form").add("grid", "accounting-grid")
+					.context("_showRecord", String.valueOf(accAcpt.getId())).map());
+
+		} catch (Exception e) {
+			res.setError(e.getMessage());
+		}
+	}
+
+}

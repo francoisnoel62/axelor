@@ -1,0 +1,14 @@
+package com.axelor.apps.accounting.service;
+
+import com.axelor.accounting.db.Accounting;
+import com.axelor.invoice.db.Invoice;
+
+public class AccountingServiceImpl implements AccountingService {
+
+	@Override
+	public Accounting createAccountingAccountFromInvoice(Invoice inv) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -13,14 +13,14 @@
 	</grid>
 
 	<form name="sale-order-form" title="Order" model="com.axelor.sale.db.SaleOrder"
-		width="large">
-		<panel>
+		width="large" readonlyIf="state2=='INVOICED'">
+		<panel >
 			<field name="state2" showTitle="false" widget="NavSelect"
 				readonly="true" colSpan="12" />
 			<field name="customer" />
 			<field name="dateOfOrder" />
 			<field name="dateOfPrevInvoicing" />
-			<field name="invoice" if-module="axelor-invoice" readonly="true"/>
+			<field name="invoice" if-module="axelor-invoice" readonly="true" />
 			<field name="saleOrderLine" colSpan="12" />
 		</panel>
 		<panel sidebar="true">
@@ -28,15 +28,21 @@
 				onClick="action-record-sale-order-calculate-totals" />
 
 			<button name="invoicing" title="Invoicing" showIf="state2=='VALIDATED'"
-				onClick="action-method-sale-order-copy-from-sale-to-invoice" />
+				hideIf="state2=='INVOICED'"
+				onClick="action-method-sale-order-copy-from-sale-to-invoice, action-record-sale-order-to-invoice" />
 
 			<button name="validate" title="Validate" showIf="state2=='DRAFT'"
 				onClick="action-record-sale-order-to-validate" />
 
-			<field name="exTaxTotal" readonly="true" colSpan="6"/>
-			<field name="inTaxTotal" readonly="true" colSpan="6"/>
+			<field name="exTaxTotal" readonly="true" colSpan="6" />
+			<field name="inTaxTotal" readonly="true" colSpan="6" />
 		</panel>
 	</form>
+
+	<action-record name="action-record-sale-order-to-invoice"
+		model="com.axelor.sale.db.SaleOrder">
+		<field name="state2" expr="eval:'INVOICED'" />
+	</action-record>
 
 	<action-record name="action-record-sale-order-calculate-totals"
 		model="com.axelor.sale.db.SaleOrder">

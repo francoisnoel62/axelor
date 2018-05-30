@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.axelor.app.AxelorModule"/>
+<fullyQualifiedTypeName name="com.axelor.invoice.db.Invoice"/>
+<fullyQualifiedTypeName name="com.axelor.apps.accounting.service.AccountingService"/>
+<fullyQualifiedTypeName name="com.axelor.accounting.db.Accounting"/>
+<fullyQualifiedTypeName name="com.axelor.accounting.db.repo.AccountingRepository"/>
+<fullyQualifiedTypeName name="com.google.inject.persist.Transactional"/>
+<fullyQualifiedTypeName name="com.axelor.apps.accounting.service.AccountingServiceImpl"/>
+<fullyQualifiedTypeName name="com.axelor.accounting.db.AccountingLine"/>
+<fullyQualifiedTypeName name="java.math.BigDecimal"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="com.axelor.i18n.I18n"/>
+<fullyQualifiedTypeName name="com.google.inject.Inject"/>
+<fullyQualifiedTypeName name="com.google.inject.Provider"/>
+<fullyQualifiedTypeName name="com.axelor.apps.invoice.service.InvoiceServiceImpl"/>
+<fullyQualifiedTypeName name="com.google.inject.Injector"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,65 @@
+package com.axelor.apps.accounting.service;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import com.axelor.accounting.db.Accounting;
+import com.axelor.accounting.db.AccountingLine;
+import com.axelor.inject.Beans;
+import com.axelor.invoice.db.Invoice;
+import com.axelor.invoice.db.InvoiceLine;
+import com.axelor.invoice.db.repo.InvoiceRepository;
+import com.axelor.sale.db.SaleOrder;
+import com.axelor.sale.db.SaleOrderLine;
+import com.google.inject.persist.Transactional;
+
+public class AccountingServiceImpl implements AccountingService {
+
+	@Override
+	public Accounting createAccountingAccountFromInvoice(Invoice inv) {
+		Accounting acc = new Accounting();
+		acc.setDateOfAccounting(inv.getDateOfInvoice());
+				
+		List<InvoiceLine> accountingLine = inv.getInvoiceLine();
+		
+		for (InvoiceLine invLine : accountingLine) {
+			AccountingLine accLine = new AccountingLine();
+			
+		}
+		
+		return accounting;
+	}
+	
+	
+//	@Override
+//	@Transactional
+//	public Invoice cpyFromSaleToInvoice(SaleOrder sale) {
+//		Invoice invoice = new Invoice();// On crée une nouvelle invoice
+//		invoice.setCustomer(sale.getCustomer());//On "set" chaque champ en recuperant ceux de la commande 
+//		invoice.setDateOfInvoice(LocalDate.now());
+//		invoice.setExTaxTotal(sale.getExTaxTotal());
+//		invoice.setInTaxTotal(sale.getInTaxTotal());
+//		invoice.setAccountingCodeCustomer("411-" + invoice.getCustomer().getLastName());
+//		
+//		List<SaleOrderLine> saleOrderLineList = sale.getSaleOrderLine();//On recupère la liste de "sale order"...
+//		
+//		for (SaleOrderLine saleOrderLine : saleOrderLineList) {//... puis on la parcours pour (a chaque ligne de commande):
+//			InvoiceLine invoiceLine = new InvoiceLine();// ...créer une ligne de facture...
+//			invoiceLine.setProduct(saleOrderLine.getProduct());//.. puis recup chaque champ de la liste de commande...
+//			invoiceLine.setDescription(saleOrderLine.getDescription());// et "set" les lignes de factures
+//			invoiceLine.setQty(saleOrderLine.getQty());
+//			invoiceLine.setExTaxPrice(saleOrderLine.getExTaxPrice());
+//			invoiceLine.setExSubTotal(saleOrderLine.getExSubTotal());
+//			invoiceLine.setTax(saleOrderLine.getTax());
+//			invoiceLine.setInSubTotal(saleOrderLine.getInSubTotal());
+//			invoiceLine.setAccountingAccount(saleOrderLine.getProduct().getAccountingAccount());
+//			invoice.addInvoiceLine(invoiceLine);//On n'oublie pas d'ajouter l'entité "lignes de factures" qu'on vient de créer dans la facture
+//		}
+//		
+//		Beans.get(InvoiceRepository.class).save(invoice);//Persistance de la nouvelle facture créée
+//		
+//		return invoice;//renvoie de la facture créée pour l'utiliser dans le Controller
+//		
+//	}
+
+}

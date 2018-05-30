@@ -1,0 +1,12 @@
+1527598899578	Rename resource 'Invoice.xml'
+1527598926486	Rename resource 'InvoiceLine.xml'
+1527599006156	Rename resource 'SaleOrder.xml'
+1527599025410	Rename resource 'Invoice.xml'
+1527599039270	Rename resource 'InvoiceLine.xml'
+1527599105242	Rename package 'com.axelor.apps.invoice.module'
+1527599126499	Rename package 'com.axelor.apps.invoice.service'
+1527599143615	Rename package 'com.axelor.apps.invoice.web'
+1527599173181	Rename package 'com.axelor.apps.invoiceLine.module'
+1527599183820	Rename package 'com.axelor.apps.invoiceLine.service'
+1527599195055	Rename package 'com.axelor.apps.invoiceLine.web'
+1527601953650	Delete elements
