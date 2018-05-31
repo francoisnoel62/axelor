@@ -23,7 +23,7 @@
 				onChange="action-record-sale-order-line-set-desc-price, action-record-sale-order-line-set-exsubtotal" />
 			<field name="description" />
 			<field name="qty" onChange="action-record-sale-order-line-set-exsubtotal" />
-			<field name="exTaxPrice" />
+			<field name="exTaxPrice" onChange="action-record-sale-order-line-set-exsubtotal"/>
 			<field name="tax" colOffset="6"
 				onChange="action-record-sale-order-line-set-exsubtotal" />
 			<panel colSpan="12">

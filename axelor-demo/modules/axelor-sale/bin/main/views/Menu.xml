@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+  <menuitem name="menu-sale"
+    title="Sale" icon="fa-usd" icon-background="violet"/> 
+
+  <menuitem name="menu-sale-orders"
+    parent="menu-sale"
+    title="All Sale Orders"
+    action="sale.all"/>     
+
+  <action-view name="sale.all"
+    title="Orders"
+    model="com.axelor.sale.db.SaleOrder"> 
+    <view type="grid" name="sale-order-grid"/> 
+    <view type="form" name="sale-order-form"/> 
+  </action-view>
+
+</object-views>
+
