@@ -10,6 +10,7 @@
 	<enum name="StatusEnum" numeric="true">
 		<item name="DRAFT" value="1" title="Draft"/>
 		<item name="VALIDATED" value="2" title="Validated"/>
+		<item name="ACCOUNTED" value="3" title="Accounted" />
 	</enum>
 
 	<entity name="Invoice" sequential="true" cachable="true">

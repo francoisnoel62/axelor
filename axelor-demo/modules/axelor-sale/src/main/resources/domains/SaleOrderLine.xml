@@ -13,7 +13,7 @@
 		<many-to-one name="product"
 			ref="com.axelor.product.db.Product" />
 		<string name="description" />
-		<decimal name="qty" />
+		<decimal name="qty" default="1"/>
 		<decimal name="exTaxPrice" />
 		<decimal name="exSubTotal" />
 		<decimal name="tax" default="0.2" />

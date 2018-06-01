@@ -6,6 +6,7 @@
 
 	<grid name="accounting-grid" title="Accounting"
 		model="com.axelor.accounting.db.Accounting">
+		<field name="customer" />
 		<field name="accountingLine" />
 		<field name="dateOfAccounting" />
 		<field name="referenceAccountingDoc" />
@@ -14,7 +15,8 @@
 	<form name="accounting-form" title="Accounting"
 		model="com.axelor.accounting.db.Accounting" width="large">
 		<panel>
-			<field name="accountingLine" />
+			<field name="customer" />
+			<field name="accountingLine" colSpan="12" />
 			<field name="dateOfAccounting" />
 			<field name="referenceAccountingDoc" />
 		</panel>

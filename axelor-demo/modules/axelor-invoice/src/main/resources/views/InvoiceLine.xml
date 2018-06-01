@@ -25,8 +25,10 @@
 			<field name="description" />
 			<field name="qty"
 				onChange="action-method-invoice-line-set-exsubtotal, action-method-invoice-line-set-insubtotal" />
-			<field name="exTaxPrice" />
-			<field name="tax" colOffset="6" />
+			<field name="exTaxPrice" 
+			onChange="action-method-invoice-line-set-exsubtotal, action-method-invoice-line-set-insubtotal"/>
+			<field name="tax" colOffset="6" 
+			onChange="action-method-invoice-line-set-insubtotal" />
 			<field name="exSubTotal" readonly="true" colSpan="6" />
 			<field name="inSubTotal" readonly="true" colSpan="6" />
 			<field name="accountingAccount" colSpan="12" />

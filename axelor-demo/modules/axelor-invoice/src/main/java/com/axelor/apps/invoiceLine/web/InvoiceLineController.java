@@ -7,31 +7,10 @@ import com.axelor.inject.Beans;
 import com.axelor.invoice.db.InvoiceLine;
 import com.axelor.rpc.ActionRequest;
 import com.axelor.rpc.ActionResponse;
-import com.google.inject.Inject;
-import com.google.inject.Injector;
-import com.google.inject.Provider;
 
 public class InvoiceLineController {
 	
-	// Variable de classe
-	@Inject
-	protected InvoiceLineService invLineServ;
 
-	// Constructor : detecte les cycle, et mieux pour les new
-//	protected InvoiceLineService invLineServ;
-//	
-//	@Inject
-//	public InvoiceLineController(InvoiceLineService invLineServ)  {
-//		
-//		this.invLineServ =invLineServ;
-//	}
-	
-	// Injection conditionnel
-	@Inject
-	Injector injector;
-	
-	@Inject
-	Provider<InvoiceLineService> invProvider;
 
 	public void setDescriptionFromProduct(ActionRequest req, ActionResponse res) {
 		
@@ -39,12 +18,8 @@ public class InvoiceLineController {
 		InvoiceLine invLine = req.getContext().asType(InvoiceLine.class);
 		
 		//On recupere le service que l'on a besoin pour recup la desc du produit
-//		InvoiceLineService invLineServ = Beans.get(InvoiceLineService.class);
-		
-		InvoiceLineService invLineServ = invProvider.get();
-		
-		InvoiceLineService invLineServInjector = injector.getInstance(InvoiceLineService.class);
-		
+		InvoiceLineService invLineServ = Beans.get(InvoiceLineService.class);
+				
 		//On recup la desc du produit grace au service
 		String prodDesc = invLineServ.setProductDescription(invLine);
 

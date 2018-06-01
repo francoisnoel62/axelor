@@ -11,7 +11,10 @@ public enum StatusEnum implements ValueEnum<Integer> {
 	DRAFT(1),
 
 	@Widget(title = "Validated")
-	VALIDATED(2);
+	VALIDATED(2),
+
+	@Widget(title = "Accounted")
+	ACCOUNTED(3);
 
 	private final Integer value;
 

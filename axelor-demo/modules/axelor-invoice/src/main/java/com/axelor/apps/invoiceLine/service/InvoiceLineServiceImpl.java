@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import com.axelor.invoice.db.InvoiceLine;
 
+
 public class InvoiceLineServiceImpl implements InvoiceLineService {
 
 	@Override
@@ -20,7 +21,7 @@ public class InvoiceLineServiceImpl implements InvoiceLineService {
 
 	@Override
 	public BigDecimal setExSubTotalPrice(InvoiceLine invLine) {
-		return invLine.getProduct().getExTaxPrice().multiply(invLine.getQty());
+		return invLine.getExTaxPrice().multiply(invLine.getQty());
 	}
 
 	@Override

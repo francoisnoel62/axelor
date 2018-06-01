@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -21,6 +22,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Type;
 
 import com.axelor.auth.db.AuditableModel;
+import com.axelor.contact.db.Contact;
 import com.axelor.db.annotations.NameColumn;
 import com.axelor.db.annotations.Sequence;
 import com.axelor.db.annotations.Widget;
@@ -28,13 +30,16 @@ import com.google.common.base.MoreObjects;
 
 @Entity
 @Cacheable
-@Table(name = "ACCOUNTING_ACCOUNTING", indexes = { @Index(columnList = "referenceAccountingDoc") })
+@Table(name = "ACCOUNTING_ACCOUNTING", indexes = { @Index(columnList = "customer"), @Index(columnList = "referenceAccountingDoc") })
 public class Accounting extends AuditableModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACCOUNTING_ACCOUNTING_SEQ")
 	@SequenceGenerator(name = "ACCOUNTING_ACCOUNTING_SEQ", sequenceName = "ACCOUNTING_ACCOUNTING_SEQ", allocationSize = 1)
 	private Long id;
+
+	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	private Contact customer;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "accounting", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<AccountingLine> accountingLine;
@@ -61,6 +66,14 @@ public class Accounting extends AuditableModel {
 	@Override
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Contact getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Contact customer) {
+		this.customer = customer;
 	}
 
 	public List<AccountingLine> getAccountingLine() {

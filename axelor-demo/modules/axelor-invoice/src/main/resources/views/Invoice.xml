@@ -13,7 +13,7 @@
 	</grid>
 
 	<form name="invoice-form" title="Invoice" model="com.axelor.invoice.db.Invoice"
-		width="large">
+		width="large" readonlyIf="state=='ACCOUNTED'">
 		<panel>
 			<field name="state" showTitle="false" widget="NavSelect"
 				readonly="true" colSpan="12" />
@@ -22,21 +22,23 @@
 			<field name="invoiceLine" colSpan="12" grid-view="invoice-line-grid"
 				form-view="invoice-line-form" />
 			<field name="accountingCodeCustomer" />
-			<field name="accountingAccount" if-module="axelor-accounting"/>
+			<field name="accountingAccount" if-module="axelor-accounting"
+				readonly="true" />
 		</panel>
 		<panel sidebar="true">
-			<button name="calculate" title="Calculate"
+			<button name="calculate" title="Calculate" hideIf="state=='ACCOUNTED'"
 				onClick="action-method-invoice-calculate_extaxtotalprice, action-method-invoice-calculate_intaxtotalprice" />
 			<button name="validate" title="Validate" showIf="state=='DRAFT'"
 				onClick="action-record-invoice-to-validate" />
 			<button name="accounting" title="Accounting" showIf="state=='VALIDATED'"
-				onClick="action-method-accounting-copy-from-invoice-to-accounting-account" />
+				onClick="action-method-accounting-copy-from-invoice-to-accounting-account, action-record-invoice-to-account" />
 			<field name="exTaxTotal" readonly="true" colSpan="6" />
 			<field name="inTaxTotal" readonly="true" colSpan="6" />
 		</panel>
 	</form>
-	
-	<action-method name="action-method-accounting-copy-from-invoice-to-accounting-account">
+
+	<action-method
+		name="action-method-accounting-copy-from-invoice-to-accounting-account">
 		<call class="com.axelor.apps.accounting.web.AccountingController"
 			method="createAccountingAccountFromInvoice" />
 	</action-method>
@@ -44,6 +46,11 @@
 	<action-record name="action-record-invoice-to-validate"
 		model="com.axelor.invoice.db.Invoice">
 		<field name="state" expr="eval:'VALIDATED'" />
+	</action-record>
+
+	<action-record name="action-record-invoice-to-account"
+		model="com.axelor.invoice.db.Invoice">
+		<field name="state" expr="eval:'ACCOUNTED'" />
 	</action-record>
 
 	<action-method name="action-method-invoice-calculate_extaxtotalprice">

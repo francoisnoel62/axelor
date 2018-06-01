@@ -20,8 +20,9 @@ public class AccountingServiceImpl implements AccountingService {
 	public Accounting createAccountingAccountFromInvoice(Invoice inv) throws Exception {
 		Accounting acc = new Accounting();
 		acc.setDateOfAccounting(inv.getDateOfInvoice());
+		acc.setCustomer(inv.getCustomer());
 		
-				
+						
 		List<InvoiceLine> accountingLine = inv.getInvoiceLine();
 		
 		for (InvoiceLine invLine : accountingLine) {

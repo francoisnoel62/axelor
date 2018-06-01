@@ -24,7 +24,7 @@
 			<field name="saleOrderLine" colSpan="12" />
 		</panel>
 		<panel sidebar="true">
-			<button name="calculate" title="Calculate"
+			<button name="calculate" title="Calculate" hideIf="state2=='INVOICED'"
 				onClick="action-record-sale-order-calculate-totals" />
 
 			<button name="invoicing" title="Invoicing" showIf="state2=='VALIDATED'"

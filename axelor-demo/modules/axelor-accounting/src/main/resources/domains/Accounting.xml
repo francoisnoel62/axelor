@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<domain-models
-	xmlns="http://axelor.com/xml/ns/domain-models"
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://axelor.com/xml/ns/domain-models
   http://axelor.com/xml/ns/domain-models/domain-models_5.0.xsd">
 
 	<module name="accounting" package="com.axelor.accounting.db" />
-	
+
 	<entity name="Accounting" sequential="true" cachable="true">
+
+		<many-to-one name="customer" ref="com.axelor.contact.db.Contact" />
 
 		<one-to-many name="accountingLine" ref="AccountingLine"
 			mappedBy="accounting" />
 
 		<date name="dateOfAccounting" />
-		
-		<string name="referenceAccountingDoc" sequence="sequenceGenerator" namecolumn="true"/>
-		
+
+		<string name="referenceAccountingDoc" sequence="sequenceGenerator"
+			namecolumn="true" />
+
 	</entity>
-	
-	<sequence name="sequenceGenerator" increment="1" initial="0" prefix="pièce" />
-	
-	
+
+	<sequence name="sequenceGenerator" increment="1" initial="0"
+		prefix="pièce" />
+
+
 </domain-models>
