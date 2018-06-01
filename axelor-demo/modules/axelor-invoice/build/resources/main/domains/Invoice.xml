@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models
+	xmlns="http://axelor.com/xml/ns/domain-models"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/domain-models
+  http://axelor.com/xml/ns/domain-models/domain-models_5.0.xsd">
+
+	<module name="invoice" package="com.axelor.invoice.db" />
+	
+	<enum name="StatusEnum" numeric="true">
+		<item name="DRAFT" value="1" title="Draft"/>
+		<item name="VALIDATED" value="2" title="Validated"/>
+		<item name="ACCOUNTED" value="3" title="Accounted" />
+	</enum>
+
+	<entity name="Invoice" sequential="true" cachable="true">
+		<many-to-one name="customer"
+			ref="com.axelor.contact.db.Contact" />
+
+		<date name="dateOfInvoice" default="now" />
+
+		<one-to-many name="invoiceLine" ref="InvoiceLine"
+			mappedBy="invoice" />
+
+		<decimal name="exTaxTotal" />
+
+		<decimal name="inTaxTotal" />
+
+		<string name="accountingCodeCustomer" />
+		
+		<enum name="state" title="State" ref="com.axelor.invoice.db.StatusEnum" default="DRAFT" />
+		
+	</entity>
+	
+	
+	
+</domain-models>
