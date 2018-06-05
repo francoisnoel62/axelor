@@ -1,5 +1,6 @@
 package com.axelor.accounting.db;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,8 @@ public class Accounting extends AuditableModel {
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "accounting", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<AccountingLine> accountingLine;
+
+	private BigDecimal inTaxtTotal = BigDecimal.ZERO;
 
 	private LocalDate dateOfAccounting;
 
@@ -130,6 +133,14 @@ public class Accounting extends AuditableModel {
 		}
 	}
 
+	public BigDecimal getInTaxtTotal() {
+		return inTaxtTotal == null ? BigDecimal.ZERO : inTaxtTotal;
+	}
+
+	public void setInTaxtTotal(BigDecimal inTaxtTotal) {
+		this.inTaxtTotal = inTaxtTotal;
+	}
+
 	public LocalDate getDateOfAccounting() {
 		return dateOfAccounting;
 	}
@@ -177,6 +188,7 @@ public class Accounting extends AuditableModel {
 	public String toString() {
 		return MoreObjects.toStringHelper(this)
 			.add("id", getId())
+			.add("inTaxtTotal", getInTaxtTotal())
 			.add("dateOfAccounting", getDateOfAccounting())
 			.add("referenceAccountingDoc", getReferenceAccountingDoc())
 			.omitNullValues()

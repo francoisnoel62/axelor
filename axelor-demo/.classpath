@@ -62,13 +62,13 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-web/5.0.0-SNAPSHOT/2a173f2d4dc86a719eb99b0cd1ce2c22fd5331d0/axelor-web-5.0.0-SNAPSHOT-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-web/5.0.0-SNAPSHOT/d72a945fdebc8a284be3bb57b5fea2c801b81353/axelor-web-5.0.0-SNAPSHOT.jar">
+	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-web/5.0.0-SNAPSHOT/36fb8f1f5b4dc00aed5ae3af69716449f0560b5c/axelor-web-5.0.0-SNAPSHOT-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-web/5.0.0-SNAPSHOT/4ded463a48b83f06ea9a7a3f60ec8e08a8e2721f/axelor-web-5.0.0-SNAPSHOT.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-core/5.0.0-SNAPSHOT/661d8fdeb7e3853b1865006122f8830e24a69e46/axelor-core-5.0.0-SNAPSHOT-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-core/5.0.0-SNAPSHOT/a25d652502ce3020f75df464d00c735a59dc6cbf/axelor-core-5.0.0-SNAPSHOT.jar">
+	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-core/5.0.0-SNAPSHOT/eafbec477ce2b212b7405bd404660294d95e9f0/axelor-core-5.0.0-SNAPSHOT-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-core/5.0.0-SNAPSHOT/fe9004164ff420b7dfbce0a4e13fa4aec6e12de/axelor-core-5.0.0-SNAPSHOT.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
@@ -92,7 +92,7 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-common/5.0.0-SNAPSHOT/172e841b03b8e1ea1a16935203d8822318ae2faf/axelor-common-5.0.0-SNAPSHOT-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-common/5.0.0-SNAPSHOT/36c7c584bf6427c7e17fbb05ee785f1fe9b29534/axelor-common-5.0.0-SNAPSHOT.jar">
+	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-common/5.0.0-SNAPSHOT/4a43438dfb7694f03d085af737bf8f5eb5aa7761/axelor-common-5.0.0-SNAPSHOT-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-common/5.0.0-SNAPSHOT/65a421dca16aa1081250755bc2f471acac244008/axelor-common-5.0.0-SNAPSHOT.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
@@ -1292,7 +1292,7 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-test/5.0.0-SNAPSHOT/6a60056e3d154b3ddfa61c03ed5af8265de077bf/axelor-test-5.0.0-SNAPSHOT-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-test/5.0.0-SNAPSHOT/c0d2824cf88e7b4c2290a0dba5235abda5e6b884/axelor-test-5.0.0-SNAPSHOT.jar">
+	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-test/5.0.0-SNAPSHOT/50292b91019bec5e8dac446acba5f4e10f885e82/axelor-test-5.0.0-SNAPSHOT-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-test/5.0.0-SNAPSHOT/86d771e303431529b54139d9475d991e87f8f07d/axelor-test-5.0.0-SNAPSHOT.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="test"/>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>

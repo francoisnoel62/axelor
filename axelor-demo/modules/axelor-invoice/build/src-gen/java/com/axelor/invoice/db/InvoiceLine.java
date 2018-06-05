@@ -41,7 +41,7 @@ public class InvoiceLine extends AuditableModel {
 
 	private String description;
 
-	private BigDecimal qty = BigDecimal.ZERO;
+	private BigDecimal qty = new BigDecimal("1");
 
 	private BigDecimal exTaxPrice = BigDecimal.ZERO;
 

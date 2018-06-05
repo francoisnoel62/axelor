@@ -25,12 +25,8 @@ public class AccountingServiceImpl implements AccountingService {
 						
 		List<InvoiceLine> accountingLine = inv.getInvoiceLine();
 		
-		//commentaires inutiles
 		for (InvoiceLine invLine : accountingLine) {
-			AccountingLine accLine = new AccountingLine();
-			accLine.setAccountingAccount(invLine.getAccountingAccount());
-			accLine.setCredit(invLine.getInSubTotal());
-			acc.addAccountingLine(accLine);
+			createAccountingLine(acc, invLine);
 		}
 		
 		AccountingLine accLine = new AccountingLine();
@@ -51,6 +47,13 @@ public class AccountingServiceImpl implements AccountingService {
 
 		
 		return acc;
+	}
+
+	private void createAccountingLine(Accounting acc, InvoiceLine invLine) {
+		AccountingLine accLine = new AccountingLine();
+		accLine.setAccountingAccount(invLine.getAccountingAccount());
+		accLine.setCredit(invLine.getInSubTotal());
+		acc.addAccountingLine(accLine);
 	}
 	
 	

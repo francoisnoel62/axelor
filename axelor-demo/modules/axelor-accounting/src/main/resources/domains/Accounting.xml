@@ -12,6 +12,8 @@
 
 		<one-to-many name="accountingLine" ref="AccountingLine"
 			mappedBy="accounting" />
+			
+			<decimal name="inTaxtTotal" />
 
 		<date name="dateOfAccounting" />
 

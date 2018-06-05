@@ -5,6 +5,10 @@
   http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 
 	<grid name="sale-order-grid" title="Orders" model="com.axelor.sale.db.SaleOrder">
+		<toolbar>
+			<button name="calc" title="Facturer commandes en retard" icon="fa-calculator"
+				onClick="action-method-sale-order-to-invoice-late-order" if-module="axelor-invoice"/>
+		</toolbar>
 		<field name="customer" />
 		<field name="dateOfOrder" />
 		<field name="dateOfPrevInvoicing" />
@@ -14,10 +18,10 @@
 
 	<form name="sale-order-form" title="Order" model="com.axelor.sale.db.SaleOrder"
 		width="large" readonlyIf="state2=='INVOICED'">
-		<panel >
+		<panel>
 			<field name="state2" showTitle="false" widget="NavSelect"
 				readonly="true" colSpan="12" />
-			<field name="customer" />
+			<field name="customer" canNew="true" />
 			<field name="dateOfOrder" />
 			<field name="dateOfPrevInvoicing" />
 			<field name="invoice" if-module="axelor-invoice" readonly="true" />
@@ -38,6 +42,11 @@
 			<field name="inTaxTotal" readonly="true" colSpan="6" />
 		</panel>
 	</form>
+
+	<action-method name="action-method-sale-order-to-invoice-late-order">
+		<call class="com.axelor.apps.invoice.web.InvoiceController"
+			method="invoiceAllLateSaleOrder" />
+	</action-method>
 
 	<action-record name="action-record-sale-order-to-invoice"
 		model="com.axelor.sale.db.SaleOrder">

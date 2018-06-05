@@ -6,7 +6,6 @@
 
 	<grid name="accounting-line-grid" title="Accounting Lines"
 		model="com.axelor.accounting.db.AccountingLine">
-
 		<field name="accountingAccount" />
 		<field name="debit" />
 		<field name="credit" />

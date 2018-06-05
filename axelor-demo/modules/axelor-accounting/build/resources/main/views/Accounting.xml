@@ -7,7 +7,7 @@
 	<grid name="accounting-grid" title="Accounting"
 		model="com.axelor.accounting.db.Accounting">
 		<field name="customer" />
-		<field name="accountingLine" />
+		<field name="inTaxtTotal" />
 		<field name="dateOfAccounting" />
 		<field name="referenceAccountingDoc" />
 	</grid>
