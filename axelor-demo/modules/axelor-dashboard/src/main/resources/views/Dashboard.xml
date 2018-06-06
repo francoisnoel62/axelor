@@ -7,6 +7,10 @@
 	<dashboard name="dashboard" title="Dashboard_1">
 		<dashlet action="order.to.invoice" />
 		<dashlet action="order.to.validate" />
+		<dashlet action="invoice.to.validate" />
+		<dashlet action="chart:chart.sales.per.month.per.product"/>
+		<dashlet action="chart:chart.nb.sales.units.by.family.product"/>
+		<dashlet action="chart:chart.sum.exTaxTotal.InvoiceLines.per.accountingAccount"/>
 	</dashboard>
 
 	<action-view name="order.to.invoice" title="Order to invoice..."
@@ -23,6 +27,14 @@
 		<view type="grid" name="sale-order-to-validate-grid" />
 		<view type="form" name="sale-order-form" />
 		<domain>self.state2 = :state AND self.invoice is null</domain>
+		<context name="state" expr="DRAFT"/>
+	</action-view>
+	
+	<action-view name="invoice.to.validate" title="Invoice to validate..."
+		model="com.axelor.invoice.db.Invoice">
+		<view type="grid" name="invoice-to-validate-grid" />
+		<view type="form" name="invoice-form" />
+		<domain>self.state = :state AND self.accountingAccount is null</domain>
 		<context name="state" expr="DRAFT"/>
 	</action-view>
 

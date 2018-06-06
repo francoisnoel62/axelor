@@ -1,0 +1,13 @@
+key,message,comment,context
+Accounting,Compte,,
+Accounting Lines,Lignes de compte,,
+Accounting account,Compte comptable, ,
+Accounting line,Ligne de compte,,
+All Accounting Account,Tous les comptes comptables,,
+Credit,Crédit,,
+Customer,Client,,
+Date of accounting,Date de l’opération,,
+Debit,Débit,,
+In taxt total,Prix TTC,,
+Reference accounting doc,,,
+credit != debit,,,

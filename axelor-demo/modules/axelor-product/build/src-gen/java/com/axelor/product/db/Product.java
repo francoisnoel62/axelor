@@ -5,12 +5,14 @@ import java.util.Objects;
 
 import javax.persistence.Basic;
 import javax.persistence.Cacheable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -22,7 +24,7 @@ import com.google.common.base.MoreObjects;
 
 @Entity
 @Cacheable
-@Table(name = "PRODUCT_PRODUCT", indexes = { @Index(columnList = "name") })
+@Table(name = "PRODUCT_PRODUCT", indexes = { @Index(columnList = "name"), @Index(columnList = "product_family") })
 public class Product extends AuditableModel {
 
 	@Id
@@ -38,6 +40,9 @@ public class Product extends AuditableModel {
 	private BigDecimal exTaxPrice = BigDecimal.ZERO;
 
 	private String accountingAccount;
+
+	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	private ProductFamily productFamily;
 
 	@Widget(title = "Attributes")
 	@Basic(fetch = FetchType.LAZY)
@@ -91,6 +96,14 @@ public class Product extends AuditableModel {
 
 	public void setAccountingAccount(String accountingAccount) {
 		this.accountingAccount = accountingAccount;
+	}
+
+	public ProductFamily getProductFamily() {
+		return productFamily;
+	}
+
+	public void setProductFamily(ProductFamily productFamily) {
+		this.productFamily = productFamily;
 	}
 
 	public String getAttrs() {

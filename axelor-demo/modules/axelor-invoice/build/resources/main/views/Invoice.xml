@@ -4,6 +4,17 @@
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views
   http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 
+	<grid name="invoice-to-validate-grid" title="Invoice"
+		model="com.axelor.invoice.db.Invoice">
+		<hilite if="$moment(dateOfInvoice).diff($moment()) &lt; 0"
+			color="danger" />
+		<field name="customer" />
+		<field name="dateOfOrder" />
+		<field name="dateOfPrevInvoicing" />
+		<field name="exTaxTotal" />
+		<field name="inTaxTotal" />
+	</grid>
+
 	<grid name="invoice-grid" title="Invoice" model="com.axelor.invoice.db.Invoice">
 		<field name="customer" />
 		<field name="dateOfInvoice" />
@@ -62,6 +73,29 @@
 		<call class="com.axelor.apps.invoice.web.InvoiceController"
 			method="calculateInTaxTotalPrice" />
 	</action-method>
+
+	<chart name="chart.sum.exTaxTotal.InvoiceLines.per.accountingAccount"
+		title="Sum exTaxTotal of invoiceLines per accountingAccount">
+		<dataset type="jpql"> 
+  <![CDATA[
+  SELECT
+      SUM(_invoiceLine.exSubTotal) AS sum,
+      self.accountingCodeCustomer as accCode
+  FROM
+      Invoice self
+  LEFT JOIN
+	self.invoiceLine AS _invoiceLine  
+  WHERE
+      self.accountingCodeCustomer is not null
+  GROUP BY
+      self.accountingCodeCustomer
+  ORDER BY
+      self.accountingCodeCustomer
+  ]]>
+  </dataset>
+		<category key="accCode" type="text" />
+		<series key="sum" type="bar" />
+	</chart>
 
 
 

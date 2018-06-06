@@ -6,17 +6,19 @@
 
 	<grid name="sale-order-to-invoice-grid" title="Orders"
 		model="com.axelor.sale.db.SaleOrder">
-		<hilite if="$moment(dateOfPrevInvoicing).diff($moment()) &lt; 0" color="danger" />
+		<hilite if="$moment(dateOfPrevInvoicing).diff($moment()) &lt; 0"
+			color="danger" />
 		<field name="customer" />
 		<field name="dateOfOrder" />
 		<field name="dateOfPrevInvoicing" />
 		<field name="exTaxTotal" />
 		<field name="inTaxTotal" />
 	</grid>
-	
+
 	<grid name="sale-order-to-validate-grid" title="Orders"
 		model="com.axelor.sale.db.SaleOrder">
-		<hilite if="$moment(dateOfPrevInvoicing).diff($moment()) &lt; 0" color="danger" />
+		<hilite if="$moment(dateOfPrevInvoicing).diff($moment()) &lt; 0"
+			color="danger" />
 		<field name="customer" />
 		<field name="dateOfOrder" />
 		<field name="dateOfPrevInvoicing" />
@@ -90,6 +92,66 @@
 		model="com.axelor.sale.db.SaleOrder">
 		<field name="state2" expr="eval:'VALIDATED'" />
 	</action-record>
+
+
+
+	<chart name="chart.sales.per.month.per.product" title="Sales per month per product">
+		<search-fields>
+			<field type="date" name="month_of_the_date" title="Month" />
+		</search-fields>
+		<dataset type="jpql"> 
+  <![CDATA[
+  SELECT
+      SUM(self.inTaxTotal) AS amount,
+      MONTH(self.dateOfOrder) AS month,
+      _product.name as product_name 
+  FROM
+      SaleOrder self
+  LEFT JOIN
+	self.saleOrderLine AS _saleOrderLine
+  LEFT JOIN
+	_saleOrderLine.product AS _product 
+  WHERE
+      YEAR(self.dateOfOrder) = YEAR(current_date)
+      AND MONTH(self.dateOfOrder) = MONTH(DATE(:month_of_the_date))
+      AND PRODUCT is not null
+  GROUP BY
+      _product,
+      MONTH(self.dateOfOrder)
+  ORDER BY
+      month
+  ]]>
+  </dataset>
+		<category key="month" type="month" />
+		<series key="amount" groupBy="product_name" type="bar" />
+	</chart>
+
+	<chart name="chart.nb.sales.units.by.family.product" title="Sale Units Per Family Product">
+		<dataset type="jpql"> 
+  <![CDATA[
+  SELECT
+      SUM(_saleOrderLine.qty) AS qty,
+      _product.productFamily.name as family_product
+  FROM
+      SaleOrder self
+  LEFT JOIN
+	self.saleOrderLine AS _saleOrderLine
+  LEFT JOIN
+	_saleOrderLine.product AS _product 
+  WHERE
+      YEAR(self.dateOfOrder) = YEAR(current_date)
+      AND _product.productFamily is not null
+  GROUP BY
+      _product.productFamily.name
+  ORDER BY
+      _product.productFamily.name
+  ]]>
+  </dataset>
+		<category key="name" type="decimal" />
+		<series key="qty" groupBy="family_product" type="bar" />
+	</chart>
+
+
 
 </object-views>
 

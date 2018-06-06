@@ -4,18 +4,18 @@
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views
   http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 
-	<grid name="product-grid" title="Products"
-		model="com.axelor.product.db.Product">
+	<grid name="product-grid" title="Products" model="com.axelor.product.db.Product">
 		<field name="name" />
+		<field name="productFamily" />
 		<field name="description" />
 		<field name="exTaxPrice" />
 		<field name="accountingAccount" />
 	</grid>
 
-	<form name="product-form" title="Product"
-		model="com.axelor.product.db.Product">
+	<form name="product-form" title="Product" model="com.axelor.product.db.Product">
 		<panel>
 			<field name="name" />
+			<field name="productFamily" />
 			<field name="description" />
 			<field name="exTaxPrice" />
 			<field name="accountingAccount" />
