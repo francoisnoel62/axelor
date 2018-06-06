@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+  <menuitem name="menu-dashboard"
+    title="Dashboard" icon="fa-usd" icon-background="violet"/> 
+
+  <menuitem name="menu-dashboard-child"
+    parent="menu-dashboard"
+    title="Dashboard"
+    action="dashboard.all"/>     
+
+  <action-view name="dashboard.all"
+    title="Dashboard"
+    model="com.axelor.sale.db.Dashboard"> 
+    <view type="dashboard" name="dashboard"/> 
+  </action-view>
+
+</object-views>
+

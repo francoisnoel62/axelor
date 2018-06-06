@@ -47,6 +47,7 @@ dependencies {
 		compile project("modules:axelor-sale")
 		compile project("modules:axelor-invoice")
 		compile project("modules:axelor-accounting")
+		compile project("modules:axelor-dashboard")
 	}
 }
 

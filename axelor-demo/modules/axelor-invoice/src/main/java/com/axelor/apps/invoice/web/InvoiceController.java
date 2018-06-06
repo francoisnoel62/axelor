@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.axelor.apps.invoice.service.InvoiceService;
+import com.axelor.i18n.I18n;
 import com.axelor.inject.Beans;
 import com.axelor.invoice.db.Invoice;
 import com.axelor.meta.schema.actions.ActionView;
@@ -61,9 +62,15 @@ public class InvoiceController {
 	}
 	
 	public void invoiceAllLateSaleOrder(ActionRequest req, ActionResponse res) {
-		List<SaleOrder> lateSO =  Beans.get(SaleOrderRepository.class).all().filter("self.dateOfPrevInvoicing < :dateNow AND self.invoice is null AND self.state2 != :status").bind("dateNow", LocalDate.now()).bind("status", StatusEnum2.DRAFT.getValue()).fetch();
-		
-		invSer.toInvoiceLateSaleOrder(lateSO);
+		try {
+			List<SaleOrder> lateSO =  Beans.get(SaleOrderRepository.class).all().filter("self.dateOfPrevInvoicing < :dateNow AND self.invoice is null AND self.state2 != :status").bind("dateNow", LocalDate.now()).bind("status", StatusEnum2.DRAFT.getValue()).fetch();
+			if(lateSO == null || lateSO.isEmpty()){
+				res.setError("Les commandes sont déjà facturées ou pas encore validées!!");
+			}
+			invSer.toInvoiceLateSaleOrder(lateSO);
+		} catch (Exception e) {
+			e.getStackTrace();
+		}
 	}
 	
 

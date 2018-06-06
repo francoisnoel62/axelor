@@ -4,10 +4,21 @@
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views
   http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 
+	<grid name="sale-order-to-invoice-grid" title="Orders"
+		model="com.axelor.sale.db.SaleOrder">
+		<hilite if="$moment(dateOfPrevInvoicing).diff($moment()) &lt; 0" color="danger" />
+		<field name="customer" />
+		<field name="dateOfOrder" />
+		<field name="dateOfPrevInvoicing" />
+		<field name="exTaxTotal" />
+		<field name="inTaxTotal" />
+	</grid>
+
+
 	<grid name="sale-order-grid" title="Orders" model="com.axelor.sale.db.SaleOrder">
 		<toolbar>
 			<button name="calc" title="Facturer commandes en retard" icon="fa-calculator"
-				onClick="action-method-sale-order-to-invoice-late-order" if-module="axelor-invoice"/>
+				onClick="action-method-sale-order-to-invoice-late-order" if-module="axelor-invoice" />
 		</toolbar>
 		<field name="customer" />
 		<field name="dateOfOrder" />

@@ -17,21 +17,11 @@ public class InvoiceServiceImpl implements InvoiceService {
 
 	@Override
 	public BigDecimal calculateExTaxTotalPrice(Invoice inv) {
-		BigDecimal total = BigDecimal.ZERO;// On initialise le resultat a zero
-		List<InvoiceLine> invoiceLineList = inv.getInvoiceLine();// On recupere
-																	// une liste
-																	// de
-																	// "invoice
-																	// lines"
+		BigDecimal total = BigDecimal.ZERO;
+		List<InvoiceLine> invoiceLineList = inv.getInvoiceLine();
 
-		for (InvoiceLine invoiceLine : invoiceLineList) {// Pour chaque ligne
-															// d'invoice dans la
-															// liste de invoice
-															// lines...
-			total = total.add(invoiceLine.getExSubTotal());// ...on recupere le
-															// total HT et on
-															// l'additionne au
-															// resultat
+		for (InvoiceLine invoiceLine : invoiceLineList) {
+			total = total.add(invoiceLine.getExSubTotal());
 		}
 
 		return total;
@@ -45,59 +35,31 @@ public class InvoiceServiceImpl implements InvoiceService {
 	@Override
 	@Transactional
 	public Invoice cpyFromSaleToInvoice(SaleOrder sale) {
-		Invoice invoice = new Invoice();// On crée une nouvelle invoice
-		invoice.setCustomer(sale.getCustomer());// On "set" chaque champ en
-												// recuperant ceux de la
-												// commande
+		Invoice invoice = new Invoice();
+		invoice.setCustomer(sale.getCustomer());
 		invoice.setDateOfInvoice(LocalDate.now());
 		invoice.setExTaxTotal(sale.getExTaxTotal());
 		invoice.setInTaxTotal(sale.getInTaxTotal());
 		invoice.setAccountingCodeCustomer("411-" + invoice.getCustomer().getLastName());
 
-		List<SaleOrderLine> saleOrderLineList = sale.getSaleOrderLine();// On
-																		// recupère
-																		// la
-																		// liste
-																		// de
-																		// "sale
-																		// order"...
+		List<SaleOrderLine> saleOrderLineList = sale.getSaleOrderLine();
 
-		for (SaleOrderLine saleOrderLine : saleOrderLineList) {// ... puis on la
-																// parcours pour
-																// (a chaque
-																// ligne de
-																// commande):
-			InvoiceLine invoiceLine = new InvoiceLine();// ...créer une ligne de
-														// facture...
-			invoiceLine.setProduct(saleOrderLine.getProduct());// .. puis recup
-																// chaque champ
-																// de la liste
-																// de
-																// commande...
-			invoiceLine.setDescription(saleOrderLine.getDescription());// et
-																		// "set"
-																		// les
-																		// lignes
-																		// de
-																		// factures
+		for (SaleOrderLine saleOrderLine : saleOrderLineList) {
+			InvoiceLine invoiceLine = new InvoiceLine();
+			invoiceLine.setProduct(saleOrderLine.getProduct());
+			invoiceLine.setDescription(saleOrderLine.getDescription());
 			invoiceLine.setQty(saleOrderLine.getQty());
 			invoiceLine.setExTaxPrice(saleOrderLine.getExTaxPrice());
 			invoiceLine.setExSubTotal(saleOrderLine.getExSubTotal());
 			invoiceLine.setTax(saleOrderLine.getTax());
 			invoiceLine.setInSubTotal(saleOrderLine.getInSubTotal());
 			invoiceLine.setAccountingAccount(saleOrderLine.getProduct().getAccountingAccount());
-			invoice.addInvoiceLine(invoiceLine);// On n'oublie pas d'ajouter
-												// l'entité "lignes de factures"
-												// qu'on vient de créer dans la
-												// facture
+			invoice.addInvoiceLine(invoiceLine);
 		}
 
-		Beans.get(InvoiceRepository.class).save(invoice);// Persistance de la
-															// nouvelle facture
-															// créée
+		Beans.get(InvoiceRepository.class).save(invoice);
 
-		return invoice;// renvoie de la facture créée pour l'utiliser dans le
-						// Controller
+		return invoice;
 
 	}
 

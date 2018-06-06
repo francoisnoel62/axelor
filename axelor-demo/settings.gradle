@@ -24,3 +24,7 @@ include "modules:axelor-sale"
 include "modules:axelor-product"
 include "modules:axelor-invoice"
 include "modules:axelor-accounting"
+include "modules:axelor-dashboard"
+
+
+
