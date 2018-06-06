@@ -42,6 +42,11 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="/axelor-dashboard">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="src" path="/axelor-invoice">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>

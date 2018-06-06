@@ -13,6 +13,16 @@
 		<field name="exTaxTotal" />
 		<field name="inTaxTotal" />
 	</grid>
+	
+	<grid name="sale-order-to-validate-grid" title="Orders"
+		model="com.axelor.sale.db.SaleOrder">
+		<hilite if="$moment(dateOfPrevInvoicing).diff($moment()) &lt; 0" color="danger" />
+		<field name="customer" />
+		<field name="dateOfOrder" />
+		<field name="dateOfPrevInvoicing" />
+		<field name="exTaxTotal" />
+		<field name="inTaxTotal" />
+	</grid>
 
 
 	<grid name="sale-order-grid" title="Orders" model="com.axelor.sale.db.SaleOrder">

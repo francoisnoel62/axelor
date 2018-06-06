@@ -9,6 +9,9 @@
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/axelor-accounting/axelor-accounting">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/axelor-dashboard/axelor-dashboard">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/axelor-invoice/axelor-invoice">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>

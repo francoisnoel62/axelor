@@ -24,6 +24,16 @@
 			<accessrule kind="accessible" pattern="jdk/nashorn/api/**"/>
 		</accessrules>
 	</classpathentry>
+	<classpathentry kind="src" path="/axelor-invoice">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="/axelor-sale">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="src" path="/axelor-contact">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>

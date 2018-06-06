@@ -4,15 +4,26 @@
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views
   http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 
-	<dashboard name="dashboard" title="Dashboard">
+	<dashboard name="dashboard" title="Dashboard_1">
 		<dashlet action="order.to.invoice" />
+		<dashlet action="order.to.validate" />
 	</dashboard>
 
-	<action-view name="order.to.invoice" title="Dashboard"
+	<action-view name="order.to.invoice" title="Order to invoice..."
 		model="com.axelor.sale.db.SaleOrder">
 		<view type="grid" name="sale-order-to-invoice-grid" />
 		<view type="form" name="sale-order-form" />
-		<domain>self.state2 &lt;&gt; 'I'</domain>
+		<domain>self.state2 = :state AND self.invoice is null</domain>
+		<context name="state" expr="VALIDATED"/>
+	</action-view>
+	
+	
+	<action-view name="order.to.validate" title="Order to validate..."
+		model="com.axelor.sale.db.SaleOrder">
+		<view type="grid" name="sale-order-to-validate-grid" />
+		<view type="form" name="sale-order-form" />
+		<domain>self.state2 = :state AND self.invoice is null</domain>
+		<context name="state" expr="DRAFT"/>
 	</action-view>
 
 </object-views>
