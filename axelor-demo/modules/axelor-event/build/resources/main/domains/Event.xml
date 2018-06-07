@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/domain-models
+  http://axelor.com/xml/ns/domain-models/domain-models_5.0.xsd">
+
+	<module name="event" package="com.axelor.event.db" />
+
+	<enum name="EventStatus" numeric="true">
+		<item name="NOT_STARTED" value="1" title="Not started" />
+		<item name="IN_PROGRESS" value="2" title="In progress" />
+		<item name="COMPLETED" value="3" title="Completed" />
+		<item name="CANCELLED" value="4" title="Cancelled" />
+	</enum>
+
+
+	<entity name="Event">
+		<string name="sujet" />
+		<string name="contenu" />
+		<datetime name="start_time" />
+		<datetime name="end_time" />
+		<datetime name="limit_time" />
+		<time name="duration" />
+		<enum name="event_status" title="Event_status" ref="com.axelor.event.db.EventStatus"
+			default="NOT_STARTED" />
+		<many-to-one name="user" column="user_id" ref="com.axelor.auth.db.User" />
+		<string name="ref" selection="selection.association.ref"  />
+		<long name="refId" />
+	</entity>
+
+
+
+</domain-models>
+

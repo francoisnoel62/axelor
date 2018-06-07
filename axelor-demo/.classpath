@@ -67,6 +67,11 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="/axelor-event">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
 	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-web/5.0.0-SNAPSHOT/36fb8f1f5b4dc00aed5ae3af69716449f0560b5c/axelor-web-5.0.0-SNAPSHOT-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-web/5.0.0-SNAPSHOT/4ded463a48b83f06ea9a7a3f60ec8e08a8e2721f/axelor-web-5.0.0-SNAPSHOT.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>

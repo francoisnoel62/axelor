@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
+
+
+	<grid name="event-grid" title="Events" model="com.axelor.event.db.Event">
+		<field name="sujet" width="300" />
+		<field name="contenu" />
+		<button name="start" icon="fa-play" onClick="save" />
+		<button name="end" icon="fa-stop" onClick="save" />
+		<button name="postpone" icon="fa-arrow-circle-o-right" onClick="save" />
+		<button name="cancel" icon="fa-ban" onClick="save" />
+	</grid>
+
+	<form model="com.axelor.event.db.Event" title="Events" name="event-form">
+		<toolbar>
+			<button name="start" title="Start" icon="fa-play" onClick="save" />
+			<button name="end" title="End" icon="fa-stop" onClick="save" />
+			<button name="postpone" title="Postpone" icon="fa-arrow-circle-o-right" onClick="save" />
+			<button name="erase" title="Cancel" icon="fa-ban" onClick="save" />
+		</toolbar>
+
+		<panel>
+			<panel>
+				<field name="sujet" colSpan="12" />
+				<field name="contenu" widget="html" colSpan="12" />
+			</panel>
+			<panel sidebar="true">
+				<field name="event_status" showTitle="false" widget="NavSelect"
+					readonly="true" />
+				<field name="start_time" />
+				<field name="end_time" />
+				<field name="duration" widget="duration" />
+				<field name="assigned_to" />
+				<field name="limit_time" />
+				<field name="ref" title="Associated to" widget="RefSelect"
+					x-related="refId" />
+			</panel>
+		</panel>
+	</form>
+
+	<selection name="selection.association.ref">
+		<option value="com.axelor.product.db.Product">Product</option>
+		<option value="com.axelor.contact.db.Contact">Contact</option>
+	</selection>
+
+
+
+</object-views>
+

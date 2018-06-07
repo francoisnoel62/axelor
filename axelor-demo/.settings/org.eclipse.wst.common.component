@@ -24,5 +24,8 @@
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/axelor-product/axelor-product">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/axelor-event/axelor-event">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
 	</wb-module>
 </project-modules>
