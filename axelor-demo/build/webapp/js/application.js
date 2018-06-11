@@ -42,7 +42,6 @@
 //= lib/fullcalendar/gcal.js
 
 //= lib/dhtmlxGantt/dhtmlxgantt.js
-//= lib/dhtmlxGantt/dhtmlxgantt_grouping.js
 
 //= lib/handsontable/handsontable.full.js
 

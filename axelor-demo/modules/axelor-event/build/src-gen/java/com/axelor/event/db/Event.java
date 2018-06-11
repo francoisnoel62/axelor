@@ -1,7 +1,6 @@
 package com.axelor.event.db;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.Objects;
 
 import javax.persistence.Basic;
@@ -43,7 +42,7 @@ public class Event extends AuditableModel {
 
 	private LocalDateTime limit_time;
 
-	private LocalTime duration;
+	private Integer duration = 0;
 
 	@Widget(title = "Event_status")
 	@Basic
@@ -52,7 +51,7 @@ public class Event extends AuditableModel {
 
 	@JoinColumn(name = "user_id")
 	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	private User user;
+	private User assigned_to;
 
 	@Widget(selection = "selection.association.ref")
 	private String ref;
@@ -117,11 +116,11 @@ public class Event extends AuditableModel {
 		this.limit_time = limit_time;
 	}
 
-	public LocalTime getDuration() {
-		return duration;
+	public Integer getDuration() {
+		return duration == null ? 0 : duration;
 	}
 
-	public void setDuration(LocalTime duration) {
+	public void setDuration(Integer duration) {
 		this.duration = duration;
 	}
 
@@ -133,12 +132,12 @@ public class Event extends AuditableModel {
 		this.event_status = event_status;
 	}
 
-	public User getUser() {
-		return user;
+	public User getAssigned_to() {
+		return assigned_to;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setAssigned_to(User assigned_to) {
+		this.assigned_to = assigned_to;
 	}
 
 	public String getRef() {

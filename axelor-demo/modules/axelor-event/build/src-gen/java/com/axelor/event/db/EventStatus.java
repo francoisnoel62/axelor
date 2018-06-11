@@ -16,8 +16,11 @@ public enum EventStatus implements ValueEnum<Integer> {
 	@Widget(title = "Completed")
 	COMPLETED(3),
 
+	@Widget(title = "Postponed")
+	POSTPONED(4),
+
 	@Widget(title = "Cancelled")
-	CANCELLED(4);
+	CANCELLED(5);
 
 	private final Integer value;
 

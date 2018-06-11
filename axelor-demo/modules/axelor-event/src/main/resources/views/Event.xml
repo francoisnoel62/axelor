@@ -8,32 +8,42 @@
 	<grid name="event-grid" title="Events" model="com.axelor.event.db.Event">
 		<field name="sujet" width="300" />
 		<field name="contenu" />
-		<button name="start" icon="fa-play" onClick="save" />
-		<button name="end" icon="fa-stop" onClick="save" />
-		<button name="postpone" icon="fa-arrow-circle-o-right" onClick="save" />
-		<button name="cancel" icon="fa-ban" onClick="save" />
+		<button name="start" icon="fa-play" onClick="action-record-event-start-task"
+			readonly="true" />
+		<button name="end" icon="fa-stop" onClick="action-record-event-end-task"
+			readonly="true" />
+		<button name="postpone" icon="fa-arrow-circle-o-right"
+			onClick="action-record-event-postpone-task" readonly="true" />
+		<button name="cancel" icon="fa-ban" onClick="action-record-event-cancel-task"
+			readonly="true" />
 	</grid>
 
 	<form model="com.axelor.event.db.Event" title="Events" name="event-form">
 		<toolbar>
-			<button name="start" title="Start" icon="fa-play" onClick="save" />
-			<button name="end" title="End" icon="fa-stop" onClick="save" />
-			<button name="postpone" title="Postpone" icon="fa-arrow-circle-o-right" onClick="save" />
-			<button name="erase" title="Cancel" icon="fa-ban" onClick="save" />
+			<button name="start" title="Start" icon="fa-play"
+				onClick="action-record-event-start-task" help=" http://fontawesome.io/icons/" />
+			<button name="end" title="End" icon="fa-stop"
+				onClick="action-record-event-end-task" help=" http://fontawesome.io/icons/" />
+			<button name="postpone" title="Postpone" icon="fa-arrow-circle-o-right"
+				onClick="action-record-event-postpone-task" help=" http://fontawesome.io/icons/" />
+			<button name="erase" title="Cancel" icon="fa-ban"
+				onClick="action-record-event-cancel-task" help=" http://fontawesome.io/icons/" />
 		</toolbar>
 
 		<panel>
 			<panel>
-				<field name="sujet" colSpan="12" />
-				<field name="contenu" widget="html" colSpan="12" />
+				<field name="sujet" required="true" colSpan="12" />
+				<field name="contenu" required="true" widget="html" colSpan="12" />
 			</panel>
 			<panel sidebar="true">
 				<field name="event_status" showTitle="false" widget="NavSelect"
 					readonly="true" />
-				<field name="start_time" />
-				<field name="end_time" />
-				<field name="duration" widget="duration" />
-				<field name="assigned_to" />
+				<field name="start_time" required="true"
+					onChange="action-method-event-calcul-duration, action-event-validate-date-time" />
+				<field name="end_time" required="true"
+					onChange="action-method-event-calcul-duration, action-event-validate-date-time" />
+				<field name="duration" widget="duration" readonly="true"/>
+				<field name="assigned_to"  />
 				<field name="limit_time" />
 				<field name="ref" title="Associated to" widget="RefSelect"
 					x-related="refId" />
@@ -41,11 +51,41 @@
 		</panel>
 	</form>
 
+	<action-validate name="action-event-validate-date-time">
+		<error
+			message="End Time is ALWAYS AFTER Start Time. Please change your dates !"
+			if="end_time.isBefore(start_time)" />
+	</action-validate>
+
+
+
+	<action-method name="action-method-event-calcul-duration">
+		<call class="com.axelor.apps.event.web.EventController" method="calculDurationBetweenEndTimeAndStartTimefromAnEvent" />
+	</action-method>
+
 	<selection name="selection.association.ref">
 		<option value="com.axelor.product.db.Product">Product</option>
 		<option value="com.axelor.contact.db.Contact">Contact</option>
 	</selection>
 
+	<action-record name="action-record-event-start-task"
+		model="com.axelor.event.db.Event">
+		<field name="event_status" expr="eval:'IN_PROGRESS'" />
+	</action-record>
+
+	<action-record name="action-record-event-end-task" model="com.axelor.event.db.Event">
+		<field name="event_status" expr="eval:'COMPLETED'" />
+	</action-record>
+
+	<action-record name="action-record-event-postpone-task"
+		model="com.axelor.event.db.Event">
+		<field name="event_status" expr="eval:'POSTPONED'" />
+	</action-record>
+
+	<action-record name="action-record-event-cancel-task"
+		model="com.axelor.event.db.Event">
+		<field name="event_status" expr="eval:'CANCELLED'" />
+	</action-record>
 
 
 </object-views>

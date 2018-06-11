@@ -10,8 +10,19 @@
   <menuitem name="menu-event-events"
     parent="menu-event"
     title="All Events"
-    action="event.all"/>     
+    action="event.all"/>
+    
+    <menuitem title="My Calendar" 
+    name="menu-event-calendar"
+    parent="menu-event"
+    action="calendar.all"/>     
 
+  <action-view name="calendar.all"
+    title="Calendar"
+    model="com.axelor.event.db.Event"> 
+    <view type="calendar" name="my-calendar" />
+  </action-view>
+  
   <action-view name="event.all"
     title="Events"
     model="com.axelor.event.db.Event"> 

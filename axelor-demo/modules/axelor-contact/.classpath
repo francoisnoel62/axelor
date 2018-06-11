@@ -24,7 +24,7 @@
 			<accessrule kind="accessible" pattern="jdk/nashorn/api/**"/>
 		</accessrules>
 	</classpathentry>
-	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-core/5.0.0-SNAPSHOT/eafbec477ce2b212b7405bd404660294d95e9f0/axelor-core-5.0.0-SNAPSHOT-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-core/5.0.0-SNAPSHOT/fe9004164ff420b7dfbce0a4e13fa4aec6e12de/axelor-core-5.0.0-SNAPSHOT.jar">
+	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-core/5.0.0-SNAPSHOT/cd911d46ccae562cd6d724e5b8a395a7151a2ea1/axelor-core-5.0.0-SNAPSHOT-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-core/5.0.0-SNAPSHOT/a6d7cfde7c2d14cccdc9cc0f19dfa69d63fe6e34/axelor-core-5.0.0-SNAPSHOT.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
@@ -36,7 +36,7 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-common/5.0.0-SNAPSHOT/4a43438dfb7694f03d085af737bf8f5eb5aa7761/axelor-common-5.0.0-SNAPSHOT-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-common/5.0.0-SNAPSHOT/65a421dca16aa1081250755bc2f471acac244008/axelor-common-5.0.0-SNAPSHOT.jar">
+	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-common/5.0.0-SNAPSHOT/c7bd21a7a52dadc8c68aea8ea2435c8dda290b48/axelor-common-5.0.0-SNAPSHOT-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-common/5.0.0-SNAPSHOT/dc900bef12f625cb47207d85a3ce3df4bb9dae73/axelor-common-5.0.0-SNAPSHOT.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
@@ -61,12 +61,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.2.3/cfd5385e0c5ed1c8a5dce57d86e79cf357153a64/logback-classic-1.2.3-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.2.3/7c4f3c474fb2c041d8028740440937705ebb473a/logback-classic-1.2.3.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.apache.shiro/shiro-cas/1.2.6/511a15f008d80ad1bf5e8fb6dfbdda50df9ab6d/shiro-cas-1.2.6-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.apache.shiro/shiro-cas/1.2.6/79772e814682f5725749a77f8dfaa2921928b58e/shiro-cas-1.2.6.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
@@ -390,6 +384,24 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
+	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/commons-jxpath/commons-jxpath/1.3/8635d6b633d632d5aad1924fb0dc767b4527689/commons-jxpath-1.3-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/commons-jxpath/commons-jxpath/1.3/c22d7d0f0f40eb7059a23cfa61773a416768b137/commons-jxpath-1.3.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.beust/jcommander/1.71/d00a680278aa1bae03c5b610ba0a6bda5f30e4d3/jcommander-1.71-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.beust/jcommander/1.71/739360ff1c3094bfd4ca3a0ef5c2127ce3fca7dd/jcommander-1.71.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.5/d843cfe3f25612ba1b11f136e478317c81e47b69/commons-compress-1.5-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.5/d2bd2c0bd328f1dabdf33e10b6d223ebcbe93343/commons-compress-1.5.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
 	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi-scratchpad/3.9/a7aa77b4e4204db3e9dcee3a908412d715718a09/poi-scratchpad-3.9-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi-scratchpad/3.9/f07d54f88a9f6c743d133be8d4446879a1e6729/poi-scratchpad-3.9.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
@@ -414,37 +426,7 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.10/11fb3d88ae7e3b757d70237064210ceb954a5a04/commons-codec-1.10-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.10/4b95f4897fa13f2cd904aee711aeafc0c5295cd8/commons-codec-1.10.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.opensaml/opensaml/1.1/21ec22368b6baa211a29887e162aa4cf9a8f3c60/opensaml-1.1.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.apache.santuario/xmlsec/1.4.3/22629b7c6b25352c25be97d0839460fef58ec533/xmlsec-1.4.3.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/commons-jxpath/commons-jxpath/1.3/8635d6b633d632d5aad1924fb0dc767b4527689/commons-jxpath-1.3-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/commons-jxpath/commons-jxpath/1.3/c22d7d0f0f40eb7059a23cfa61773a416768b137/commons-jxpath-1.3.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.beust/jcommander/1.71/d00a680278aa1bae03c5b610ba0a6bda5f30e4d3/jcommander-1.71-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.beust/jcommander/1.71/739360ff1c3094bfd4ca3a0ef5c2127ce3fca7dd/jcommander-1.71.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.5/d843cfe3f25612ba1b11f136e478317c81e47b69/commons-compress-1.5-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.5/d2bd2c0bd328f1dabdf33e10b6d223ebcbe93343/commons-compress-1.5.jar">
+	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.9/3f15fff45d57656685abfee9e8302bf14580044c/commons-codec-1.9-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.9/9ce04e34240f674bc72680f8b843b1457383161a/commons-codec-1.9.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
@@ -661,24 +643,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.glassfish/javax.json/1.0.4/ef782abad0d3f1d30644c4023a6bbc6fe371e23a/javax.json-1.0.4-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.glassfish/javax.json/1.0.4/3178f73569fd7a1e5ffc464e680f7a8cc784b85a/javax.json-1.0.4.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.jasig.cas.client/cas-client-core/3.2.2/d1870fa6c5d4009d48929c9468ae694dcbe030c6/cas-client-core-3.2.2-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.jasig.cas.client/cas-client-core/3.2.2/62376e8005bb4076b8d256e2cd4c3f2e1f7ff77b/cas-client-core-3.2.2.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.apache.pdfbox/fontbox/1.8.1/8fe560c8848e3d634024b5a98465a2e27e112b2/fontbox-1.8.1-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.apache.pdfbox/fontbox/1.8.1/32879bb6bb87b15c6d53bc358e83ede40fc729ae/fontbox-1.8.1.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/ecf26c7507d67782a3bbd148d170b31dfad001aa/commons-logging-1.2-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
@@ -1152,7 +1116,19 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
+	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.apache.pdfbox/fontbox/1.8.1/8fe560c8848e3d634024b5a98465a2e27e112b2/fontbox-1.8.1-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.apache.pdfbox/fontbox/1.8.1/32879bb6bb87b15c6d53bc358e83ede40fc729ae/fontbox-1.8.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
 	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.apache.pdfbox/jempbox/1.8.1/19251666890d6c09eee8cae98af560d3af46fed0/jempbox-1.8.1-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/org.apache.pdfbox/jempbox/1.8.1/1a34de98c20293b07474aa17cb05dad66070b9c8/jempbox-1.8.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/ecf26c7507d67782a3bbd148d170b31dfad001aa/commons-logging-1.2-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
@@ -1230,7 +1206,7 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-test/5.0.0-SNAPSHOT/50292b91019bec5e8dac446acba5f4e10f885e82/axelor-test-5.0.0-SNAPSHOT-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-test/5.0.0-SNAPSHOT/86d771e303431529b54139d9475d991e87f8f07d/axelor-test-5.0.0-SNAPSHOT.jar">
+	<classpathentry sourcepath="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-test/5.0.0-SNAPSHOT/875b4b6666e8e97a0a3e81799152a32348163652/axelor-test-5.0.0-SNAPSHOT-sources.jar" kind="lib" path="/home/fnoel/.gradle/caches/modules-2/files-2.1/com.axelor/axelor-test/5.0.0-SNAPSHOT/44bf6020e3f4bbadd52c74fa39cc3fb4d3d02c6a/axelor-test-5.0.0-SNAPSHOT.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="test"/>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>

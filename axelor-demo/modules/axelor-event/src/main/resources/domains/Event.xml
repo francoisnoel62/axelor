@@ -10,7 +10,8 @@
 		<item name="NOT_STARTED" value="1" title="Not started" />
 		<item name="IN_PROGRESS" value="2" title="In progress" />
 		<item name="COMPLETED" value="3" title="Completed" />
-		<item name="CANCELLED" value="4" title="Cancelled" />
+		<item name="POSTPONED" value="4" title="Postponed" />
+		<item name="CANCELLED" value="5" title="Cancelled" />
 	</enum>
 
 
@@ -20,10 +21,10 @@
 		<datetime name="start_time" />
 		<datetime name="end_time" />
 		<datetime name="limit_time" />
-		<time name="duration" />
+		<integer name="duration" />
 		<enum name="event_status" title="Event_status" ref="com.axelor.event.db.EventStatus"
 			default="NOT_STARTED" />
-		<many-to-one name="user" column="user_id" ref="com.axelor.auth.db.User" />
+		<many-to-one name="assigned_to" column="user_id" ref="com.axelor.auth.db.User" />
 		<string name="ref" selection="selection.association.ref"  />
 		<long name="refId" />
 	</entity>
