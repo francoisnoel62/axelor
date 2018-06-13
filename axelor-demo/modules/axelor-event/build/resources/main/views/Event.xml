@@ -8,6 +8,7 @@
 	<grid name="event-grid" title="Events" model="com.axelor.event.db.Event">
 		<field name="sujet" width="300" />
 		<field name="contenu" />
+		<field name="limit_time" />
 		<button name="start" icon="fa-play" onClick="action-record-event-start-task"
 			readonly="true" />
 		<button name="end" icon="fa-stop" onClick="action-record-event-end-task"
@@ -16,6 +17,22 @@
 			onClick="action-record-event-postpone-task" readonly="true" />
 		<button name="cancel" icon="fa-ban" onClick="action-record-event-cancel-task"
 			readonly="true" />
+	</grid>
+
+	<grid name="today-event-grid" title="Today Event" model="com.axelor.event.db.Event">
+		<hilite if="$moment(end_time).diff($moment()) &lt; 0" color="danger"  />
+		<hilite if="event_status == 'COMPLETED'" color="success" />
+		<field name="sujet" width="300" />
+		<field name="contenu" />
+		<field name="limit_time" />
+		<!-- <button name="start" icon="fa-play" onClick="action-record-event-start-task"
+			readonly="true" />
+		<button name="end" icon="fa-stop" onClick="action-record-event-end-task"
+			readonly="true" />
+		<button name="postpone" icon="fa-arrow-circle-o-right"
+			onClick="action-record-event-postpone-task" readonly="true" />
+		<button name="cancel" icon="fa-ban" onClick="action-record-event-cancel-task"
+			readonly="true" /> -->
 	</grid>
 
 	<form model="com.axelor.event.db.Event" title="Events" name="event-form">
@@ -42,8 +59,8 @@
 					onChange="action-method-event-calcul-duration, action-event-validate-date-time" />
 				<field name="end_time" required="true"
 					onChange="action-method-event-calcul-duration, action-event-validate-date-time" />
-				<field name="duration" widget="duration" readonly="true"/>
-				<field name="assigned_to"  />
+				<field name="duration" widget="duration" readonly="true" />
+				<field name="assigned_to" />
 				<field name="limit_time" />
 				<field name="ref" title="Associated to" widget="RefSelect"
 					x-related="refId" />

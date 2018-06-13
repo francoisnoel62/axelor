@@ -119,7 +119,7 @@ function GanttViewCtrl($scope, $element) {
 	var ds = $scope._dataSource;
 	var view = $scope._views.gantt;
 	var initialized = false;
-
+	
 	$scope.onShow = function(viewPromise) {
 		
 		if (initialized) {
@@ -155,10 +155,17 @@ function GanttViewCtrl($scope, $element) {
 		                      schema.finishToStart,
 		                      schema.startToStart,
 		                      schema.finishToFinish,
-		                      schema.startToFinish,
+		                      schema.startToFinish,                      
 		                      schema.taskUser
 		];
-
+		
+		if (schema.groupBy) {
+			_.each(schema.groupBy.split(','),function(optField){
+				if(optField){
+					searchFields.push(optField);
+				}
+			});
+		}
 		_.each(optionalFields,function(optField){
 			if(optField){
 				searchFields.push(optField);
@@ -225,6 +232,7 @@ ui.directive('uiViewGantt', ['ViewService', 'ActionService', function(ViewServic
 		var firstField = fields[fieldNames[0]];
 		var mode = schema.mode || "week";
 		var editor = null;
+		var groupBy = schema.groupBy ? schema.groupBy.split(',') : [];
 		ganttInit();
 		
 		function byId(list, id) {
@@ -426,9 +434,10 @@ ui.directive('uiViewGantt', ['ViewService', 'ActionService', function(ViewServic
 		   };
 		   ganttAttachEvents();
 		   setChildTaskDisplay();
+		   gantt.serverList("groups", []);
 		   fetchRecords();	
 	   }
-
+	   
 	   function ganttAttachEvents(){
 		   
 		   gantt.templates.rightside_text = function(start, end, task){
@@ -516,11 +525,23 @@ ui.directive('uiViewGantt', ['ViewService', 'ActionService', function(ViewServic
 			   var data = [];
 			   var links = [];
 				_.each(records, function(rec) {
-					addData(data, rec);
-					addLinks(links, rec);
+					var dt = addData(rec);
+					if (dt) {
+						data.push(dt);
+						addLinks(links, rec);	
+					}
 				});
 				gantt.parse({ "data":data, "links":links });
+				if (gantt.serverList("groups").length > 0 ) {
+					gantt.groupBy({
+						groups:gantt.serverList("groups") ,
+						relation_property: "groupId",
+						group_id: "key",
+						group_text: "label"
+					});
+				}
 			});
+		   	
 		   
 	   }
 
@@ -601,20 +622,50 @@ ui.directive('uiViewGantt', ['ViewService', 'ActionService', function(ViewServic
 			
 			return scope.doSave(item, updateTaskRecord);
 		}
-
-		function addData(data, rec){
+	   	
+	   
+		function addData(rec){
 			
-			if(rec[schema.taskStart]){
+
+			if(rec[schema.taskStart]) {
+				var recordGroupId = ""; 
+				var prevGroupId = null;
+				for (var i = 0; i < groupBy.length; i++) {
+					if (!rec[groupBy[i]]) {
+						continue;
+					}
+					var nameKeys = _.filter(_.keys(rec[groupBy[i]]), function(key) {
+								return key != "id" && key != "$version"});
+					var nameColumn = "id";
+					if (nameKeys)  {
+						nameColumn = nameKeys[0];
+					}
+					recordGroupId += groupBy[i] + rec[groupBy[i]].id;
+					var groupDict = {key : recordGroupId, label: rec[groupBy[i]][nameColumn]};
+					if (i > 0 && prevGroupId) {
+						groupDict["groupId"] = prevGroupId;
+					}
+					if (!_.findWhere(gantt.serverList("groups"), {key: recordGroupId})) {
+						gantt.serverList("groups").push(groupDict);
+					}
+					prevGroupId = recordGroupId;
+				}
+				
 				var dict = {
 					id:rec.id,
 					open:true,
 					isNew:true
 				};
+				
+				if (recordGroupId) {
+					dict["groupId"] = recordGroupId
+				}
+				
 				dict = updateData(dict, rec);
 				dict.isNew = false;
 				
 				if(dict.start_date){
-					data.push(dict);
+					return dict;
 				}
 			}
 			

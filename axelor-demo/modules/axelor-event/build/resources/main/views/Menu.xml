@@ -1,34 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <object-views xmlns="http://axelor.com/xml/ns/object-views"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/object-views
   http://axelor.com/xml/ns/object-views/object-views_5.0.xsd">
 
-  <menuitem name="menu-event"
-    title="My Events" icon="fa-address-book" icon-background="#FFFF00"/> 
+	<menuitem name="menu-event" title="My Events" icon="fa-address-book"
+		icon-background="#FFFF00" />
 
-  <menuitem name="menu-event-events"
-    parent="menu-event"
-    title="All Events"
-    action="event.all"/>
-    
-    <menuitem title="My Calendar" 
-    name="menu-event-calendar"
-    parent="menu-event"
-    action="calendar.all"/>     
+	<menuitem name="menu-event-events" parent="menu-event" title="All Events"
+		action="event.all" />
 
-  <action-view name="calendar.all"
-    title="Calendar"
-    model="com.axelor.event.db.Event"> 
-    <view type="calendar" name="my-calendar" />
-  </action-view>
-  
-  <action-view name="event.all"
-    title="Events"
-    model="com.axelor.event.db.Event"> 
-    <view type="grid" name="event-grid"/> 
-    <view type="form" name="event-form"/> 
-  </action-view>
+	<menuitem title="My Calendar" name="menu-event-calendar"
+		parent="menu-event" action="calendar.all" />
+
+	<menuitem title="Today's Event" name="menu-event-today-event"
+		parent="menu-event" action="today-event.all" />
+
+	<action-view name="today-event.all" title="Today event"
+		model="com.axelor.event.db.Event">
+		<view type="grid" name="today-event-grid" />
+		<view type="form" name="event-form" />
+		<domain>self.start_time &lt; CURRENT_DATE AND self.limit_time &gt; CURRENT_DATE</domain>
+	</action-view>
+
+	<action-view name="calendar.all" title="Calendar"
+		model="com.axelor.event.db.Event">
+		<view type="calendar" name="my-calendar" />
+	</action-view>
+
+	<action-view name="event.all" title="Events"
+		model="com.axelor.event.db.Event">
+		<view type="grid" name="event-grid" />
+		<view type="form" name="event-form" />
+	</action-view>
 
 </object-views>
 
