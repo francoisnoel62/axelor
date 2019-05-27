@@ -1,3 +1,6 @@
+<strong>I did my internship at Axelor. They publish a modular open source ERP based on the Java / jEE framework. I was hired as a Java developer-designer within the BU "customer relationship", in charge of customer ticketing in a team of 3 developers.</strong>
+
+
 Axelor Business Suite
 ================================
 
